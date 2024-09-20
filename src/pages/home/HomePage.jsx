@@ -23,8 +23,8 @@ const HomePage = () => {
   return (
     <Background> {/* Envuelve el contenido en el componente Background */}
       <div className={styles.containerTotal}>
+        <img className={styles.logo} src={Logo} alt='Logo.png' />
         <div className={styles.containerPrimary}>
-          <img className={styles.logo} src={Logo} alt='Logo.png' />
           <span className={styles.title}>Sweet</span>
           <span className={styles.title2}>Bakery</span>
         </div>
