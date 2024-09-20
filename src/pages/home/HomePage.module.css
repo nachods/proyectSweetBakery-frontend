@@ -1,3 +1,112 @@
-body {
-    background-color: #fff3f3;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Pacifico&display=swap");
+
+/*  */ /*  */ /*  */ /*  */
+.containerTotal{
+  position: relative;
+  z-index: 1;
+}
+/*  */ /*  */ /*  */ /*  */
+.containerPrimary {
+  border-bottom: 3px solid #ff9292;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding-bottom: 65px;
+  margin-top: 40px;
+}
+.title2 {
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+  color: #f88f8f;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  color: #6b4226;
+}
+.logo {
+  display: none;
+}
+/*  */ /*  */ /*  */ /*  */
+.containerSecondary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.text {
+    font-family: "Poppins", sans-serif;
+    font-size: 21px;
+    color: #6b4226;
+}
+/*  */ /*  */ /*  */ /*  */
+.containerThird {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.button {
+  cursor: pointer;
+  background-color: #ff9292;
+  width: 150px;
+  height: 60px;
+  border: 2px solid #c77777;
+  border-radius: 50px;
+  color: #ffd3d3;
+  font-size: 20px;
+  font-weight: 550;
+  transition: all 0.5s ease-in-out;
+}
+.button:hover {
+  background-color: #c77777;
+}
+/*  */ /*  */ /*  */ /*  */
+.containerFour {
+  border-bottom: 3px solid #ff9292;
+  border-top: 3px solid #ff9292;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 30px;
+}
+.textRRSS {
+  font-family: "Poppins", sans-serif;
+  font-size: 21px;
+  color: #6b4226;
+}
+.subContainerFour {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.subContainerFour button {
+  cursor: pointer;
+  font-size: 19px;
+  margin-bottom: 15px;
+  color: #642020;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+.subContainerFour button:hover {
+  background-color: rgba(218, 150, 150, 0.445);
+  border-radius: 20px;
+}
+.subContainerFour i {
+  margin-right: 10px;
+  color: #3d1010;
 }
