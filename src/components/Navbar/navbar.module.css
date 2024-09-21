@@ -1,0 +1,59 @@
+.NavBar {
+    background-color: #f88f8f;
+    border-bottom: 3px solid #f88f8f;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    transition: top 0.3s ease-in-out;
+}
+
+.navBarLat {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.navBarLat button {
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 20px;
+    background-color: #64202086;
+    color: #ffffffe8;
+    transition: all 0.5s ease-in-out;
+}
+
+.navBarLat button:hover {
+    background-color: #914848;
+}
+
+.navBarCenter button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.navBarCenter img {
+    width: 70px;
+}
+
+/* Estilos para la visibilidad del navbar */
+.hidden {
+    top: -60px; /* Mueve el Navbar hacia arriba fuera de la vista */
+}
+
+.visible {
+    top: 0; /* Asegura que el Navbar esté visible en la parte superior */
+}
+
+.hiddenButton {
+    visibility: hidden; /* Oculta el botón pero mantiene su espacio ocupado */
+}
