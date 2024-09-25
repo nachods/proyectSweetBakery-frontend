@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Pacifico&display=swap");
+
+/*  */ /*  */ /*  */ /*  */
+.containerTotal {
+  z-index: 1;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*  */ /*  */ /*  */ /*  */
+/* Formulario */
+.contform {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #d47a7a;
+  width: 350px;
+  padding: 20px; /* Añadir un poco de padding para el contenido */
+  background: #f88f8f18; /* Fondo blanco para el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+.contform input {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px; /* Espacio entre los inputs */
+  padding: 10px; /* Padding interno de los inputs */
+  background-color: #f8d8d8; /* Fondo rosa para los inputs */
+  border: 2px solid #d47a7a; /* Borde de los inputs */
+  border-radius: 20px; /* Bordes redondeados de los inputs */
+}
+.contform input:hover {
+  border-color: #d47a7a;
+}
+.contform input:focus {
+  border-color: #d47a7a;
+  outline: none;
+  color: #6b4226;
+}
+.contform input::placeholder {
+    color: #6b4226;
+}
+.contformButton {
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  background-color: #f88f8f;
+  color: #FFFF;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.5s ease-in-out;
+}
+.contformButton:hover {
+  background-color: #d47a7a; /* Color más oscuro al pasar el ratón */
+}
+/*  */ /*  */ /*  */ /*  */
+/*  */ /*  */ /*  */ /*  */
+/* Tablet */
+@media (min-width: 768px) {
+  .contform {
+    width: 500px;
+  }
+}
+/*  */ /*  */ /*  */ /*  */
+/*  */ /*  */ /*  */ /*  */
+/* Pc */
+@media (min-width: 1024px) {
+  .contform {
+    width: 700px;
+  }
+}
