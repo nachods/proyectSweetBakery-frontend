@@ -1,0 +1,23 @@
+.Menu {
+    border: 5px solid #f88f8f;
+    border-radius: 20px;
+    background-color: #D47A7A;;
+    width: 250px;
+    height: 390px;
+    margin: 20px 5px;
+    position: relative;
+  }
+  .MenuImg {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+  }
+  .subMenu {
+    padding: 20px;
+    color: #6B4226;
+  }
+@media (min-width: 1024px) {
+  .Menu {
+    width: 300px;
+  }
+}
