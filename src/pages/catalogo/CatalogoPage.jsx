@@ -1,12 +1,48 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import styles from './Catalogo.module.css';
 import Background from '../../components/Background/Background';
 import Footer from '../../components/Footer/footer';
 import OneCard from '../../components/OneCardCatalogo/oneCard';
+import { getAllCatalogos } from '../../api/catalogos/getAllCatalogosFetch'
 
 export const CatalogoPage = () => {
+  const [catalogos, setCatalogos] = useState([]);
+  const [categorias, setCategorias] = useState([]);  // Nuevo estado para categorías
+  const [error, setError] = useState(null);
   const [searchProductos, setSearchProductos] = useState(""); // Buscador
   const [filterActive, setFilterActive] = useState("all"); // Filtrado
+
+  useEffect(() => {
+    const fetchCatalogos = async () => {
+      try {
+        const data = await getAllCatalogos();
+        console.log('Data received:', data);  // Añade este log
+        setCatalogos(data);
+        
+        // Extraer las categorías y eliminar duplicados
+        const uniqueCategorias = [...new Set(data.map(catalogo => catalogo.categoria))];
+        setCategorias(uniqueCategorias);
+        
+        setError(null);
+      } catch (error) {
+        setError('Error en la carga de los menús');
+        console.log('Fetch error:', error);  // Añade este log
+      }
+    };
+    fetchCatalogos();
+  }, []);
+
+  const activeCatalogos = catalogos.filter(catalogo => catalogo.estado);
+
+  // Filtrar por categoría primero
+  const filteredByCategory = activeCatalogos.filter(catalogo =>
+    filterActive === "all" || catalogo.categoria === filterActive
+  );
+
+  // Luego, filtrar por nombre en los resultados ya filtrados por categoría
+  const filteredCategorias = filteredByCategory.filter(catalogo =>
+    catalogo.nombre.toLowerCase().includes(searchProductos.toLowerCase())
+  );
 
   return (
     <Background>
@@ -31,30 +67,27 @@ export const CatalogoPage = () => {
               onChange={(e) => setFilterActive(e.target.value)}
             >
               <option value="all">Todos</option>
-              <option value="op1">op1</option>
-              <option value="op2">op2</option>
-              <option value="op3">op3</option>
+              {categorias.map((categoria, index) => (
+                <option key={index} value={categoria}>{categoria}</option>
+              ))}
             </select>
           </div>
           <div className={styles.containerCards}>
-            <OneCard
-              key='asd'
-              title='Torta A'
-              picture='asd'
-              desc='DDL'
-            />
-            <OneCard
-              key='asd'
-              title='Torta A'
-              picture='asd'
-              desc='DDL'
-            />
-            <OneCard
-              key='asd'
-              title='Torta A'
-              picture='asd'
-              desc='DDL'
-            />
+            {filteredCategorias.length > 0 ? (
+              filteredCategorias.map((catalogo) => {
+                console.log('Image URL:', `http://localhost:3977/${catalogo.image}`);
+                return (
+                  <OneCard
+                    key={catalogo._id}
+                    title={catalogo.nombre}
+                    picture={`http://localhost:3977/${catalogo.image}`}
+                    desc={catalogo.detalle}
+                  />
+                );
+              })
+            ) : (
+              <p>No hay menús para mostrar</p>
+            )}
           </div>
         </div>
         <footer>

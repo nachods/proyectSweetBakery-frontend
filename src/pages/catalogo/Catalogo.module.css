@@ -70,8 +70,7 @@
   color: #6B4226;
 }
 .containerCards{
-  border: 1px solid red;
-  margin: 20px;
+  margin: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

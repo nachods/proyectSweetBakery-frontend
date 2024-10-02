@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./oneCard.module.css";
 
 const SubMenu = (props) => {
-  const { title, picture, desc, price } = props;
+  const { title, picture, desc } = props;
 
   return (
     <div className={styles.Menu}>

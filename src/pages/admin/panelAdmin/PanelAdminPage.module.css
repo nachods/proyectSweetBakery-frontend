@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Pacifico&display=swap");
+
+.containerTotal {
+  z-index: 1;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logout {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  width: 120px;
+  height: 50px;
+  background-color: #64202086;
+  color: #fff;
+  font-weight: 500;
+  font-size: 17px;
+  transition: all 0.5s ease-in-out;
+}
+.logout:hover {
+  background-color: #914848;
+}
+.containerCatalogo {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.containerCatalogo h5 {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  color: #6b4226;
+}
+/*  */
+/* Creacion del Producto */
+/*  */
+
+/*  */
+/* Actualizancion del Producto */
+/*  */
+
+/*  */
+/* Lista e Eliminacion del Producto */
+/*  */

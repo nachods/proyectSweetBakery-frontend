@@ -27,6 +27,7 @@
   background-color: #f8d8d8; /* Fondo rosa para los inputs */
   border: 2px solid #d47a7a; /* Borde de los inputs */
   border-radius: 20px; /* Bordes redondeados de los inputs */
+  color: #6b4226;
 }
 .contform input:hover {
   border-color: #d47a7a;

@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './footer.module.css';
 import { useNavigate } from 'react-router-dom';
+import userContext from '../../context/UserContext';
 
 const Footer = () => {
   const navigate = useNavigate();
+  const { user } = useContext(userContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/admin');
-  };
+    // Redirige a /panel si el usuario está autenticado, de lo contrario a /admin
+    if (user) {
+      navigate('/panel');
+    } else {
+      navigate('/admin');
+    }
+  };;
 
   return (
     <div className={styles.footer}>
