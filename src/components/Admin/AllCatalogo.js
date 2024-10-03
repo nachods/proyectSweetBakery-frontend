@@ -1,7 +1,8 @@
-// components/Admin/AllCatalogo.js
 import React, { useState, useEffect } from "react";
 import OneCard from "../OneCardCatalogo/oneCard";
 import { getAllCatalogos } from "../../api/catalogos/getAllCatalogosFetch";
+import { deleteCatalogo } from "../../api/catalogos/deleteCatalogoFetch"; // Función para eliminar
+import style from '../../pages/admin/panelAdmin/PanelAdminPage.module.css';
 
 const AllCatalogo = () => {
   const [catalogos, setCatalogos] = useState([]);
@@ -20,15 +21,24 @@ const AllCatalogo = () => {
           ...new Set(data.map((catalogo) => catalogo.categoria)),
         ];
         setCategorias(uniqueCategorias);
-
         setError(null);
       } catch (error) {
-        setError("Error en la carga de los menús");
         console.log("Fetch error:", error);
       }
     };
     fetchCatalogos();
   }, []);
+
+  // Función para eliminar catálogo
+  const handleDeleteCatalogo = async (nombre) => {
+    try {
+      await deleteCatalogo(nombre); // Llama a la API para eliminar el catálogo
+      setCatalogos((prevCatalogos) => prevCatalogos.filter((catalogo) => catalogo.nombre !== nombre)); // Elimina del estado local
+      setError(null);
+    } catch (error) {
+      setError(`Error al eliminar el catálogo: ${error.message}`);
+    }
+  };
 
   const activeCatalogos = catalogos.filter((catalogo) => catalogo.estado);
   const filteredByCategory = activeCatalogos.filter(
@@ -41,14 +51,16 @@ const AllCatalogo = () => {
   return (
     <div>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <div>
+      <div className={style.containerSearch}>
         <input
+          className={style.inputSearch}
           type="text"
           placeholder="Buscar por nombre"
           value={searchProductos}
           onChange={(e) => setSearchProductos(e.target.value)}
         />
         <select
+          className={style.inputSearch}
           value={filterActive}
           onChange={(e) => setFilterActive(e.target.value)}
         >
@@ -60,15 +72,20 @@ const AllCatalogo = () => {
           ))}
         </select>
       </div>
-      <div>
+      <div className={style.containerCards}>
         {filteredCategorias.length > 0 ? (
           filteredCategorias.map((catalogo) => (
-            <OneCard
-              key={catalogo._id}
-              title={catalogo.nombre}
-              picture={`http://localhost:3977/${catalogo.image}`}
-              desc={catalogo.detalle}
-            />
+            <div key={catalogo._id}>
+              <OneCard
+                title={catalogo.nombre}
+                picture={`http://localhost:3977/${catalogo.image}`}
+                desc={catalogo.detalle}
+              />
+              {/* Botón para eliminar */}
+              <button className={style.buttonDelete} onClick={() => handleDeleteCatalogo(catalogo.nombre)}>
+                Eliminar
+              </button>
+            </div>
           ))
         ) : (
           <p>No hay menús para mostrar</p>

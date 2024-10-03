@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateCatalogo } from "../../../api/catalogos/updateCatalogosFetch";
+import style from '../../../pages/admin/panelAdmin/PanelAdminPage.module.css'
 
 const UpdateCatalogItem = ({ onItemUpdated }) => {
   const [error, setError] = useState(""); // Mensaje de error
@@ -48,8 +49,8 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form onSubmit={handleSubmit} className={style.contForm}>
+        <input className={style.FormInput}
           type="text"
           name="nombre"
           placeholder="Nombre (Obligatorio)"
@@ -57,21 +58,21 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
           onChange={(e) => setNombre(e.target.value)}
           required
         />
-        <input
+        <input className={style.FormInput}
           type="text"
           name="detalle"
           placeholder="Detalle"
           value={detalle}
           onChange={(e) => setDetalle(e.target.value)}
         />
-        <input
+        <input className={style.FormInput}
           type="text"
           name="categoria"
           placeholder="Categoría"
           value={categoria}
           onChange={(e) => setCategoria(e.target.value)}
         />
-        <input
+        <input className={style.FormInput2}
           type="file"
           name="image"
           accept="image/*"
@@ -92,7 +93,7 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
           />
         )}
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Actualizar</button>
+        <button type="submit" className={style.button}>Actualizar</button>
         {success && <p style={{ color: "green" }}>{success}</p>}
       </form>
     </div>

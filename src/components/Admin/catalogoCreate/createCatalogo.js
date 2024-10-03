@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createCatalogo } from "../../../api/catalogos/createCatalogoFetch"; // Importar función para crear menú
-// Importar estilos
+import styles from '../../../pages/admin/panelAdmin/PanelAdminPage.module.css'// Importar estilos
 
 const CreateCatalogo = ({ onCatalogoCreated }) => {
   /* Estado inicial del formulario con los campos necesarios */
@@ -58,8 +58,8 @@ const CreateCatalogo = ({ onCatalogoCreated }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form onSubmit={handleSubmit} className={styles.contForm}>
+        <input className={styles.FormInput}
           type="text"
           name="nombre"
           placeholder="Nombre del producto"
@@ -67,7 +67,7 @@ const CreateCatalogo = ({ onCatalogoCreated }) => {
           onChange={handleInputChange}
           required
         />
-        <input
+        <input className={styles.FormInput}
           type="text"
           name="detalle"
           placeholder="Detalle del producto"
@@ -75,7 +75,7 @@ const CreateCatalogo = ({ onCatalogoCreated }) => {
           onChange={handleInputChange}
           required
         />
-        <input
+        <input className={styles.FormInput}
           type="text"
           name="categoria"
           placeholder="Categoría"
@@ -83,7 +83,7 @@ const CreateCatalogo = ({ onCatalogoCreated }) => {
           onChange={handleInputChange}
           required
         />
-        <input
+        <input className={styles.FormInput2}
           type="file"
           name="image"
           accept="image/*"
@@ -105,7 +105,7 @@ const CreateCatalogo = ({ onCatalogoCreated }) => {
           />
         )}
         {error && <p className="alert alert-danger">{error}</p>}
-        <button type="submit">
+        <button type="submit" className={styles.button}>
           Crear
         </button>
         {success && <p className="alert alert-success">{success}</p>}

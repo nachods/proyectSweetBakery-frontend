@@ -16,11 +16,11 @@ const PanelAdminPage = () => {
                 <button onClick={logout} className={styles.logout}>Cerrar sesión</button>
                 <div className={styles.containerCatalogo}>
                     <h5>Creación de producto</h5>
-                    <CreateCatalogo/>
+                    <CreateCatalogo />
                     <h5>Actualizar el producto</h5>
-                    <UpdateCatalogItem/>
+                    <UpdateCatalogItem />
                     <h5>Lista de productos</h5>
-                    <AllCatalogo/>
+                    <AllCatalogo />
                 </div>
             </div>
         </Background>

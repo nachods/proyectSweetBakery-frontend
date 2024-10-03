@@ -36,13 +36,94 @@
   color: #6b4226;
 }
 /*  */
-/* Creacion del Producto */
+/* Creacion y Actualizacion del Producto */
 /*  */
-
-/*  */
-/* Actualizancion del Producto */
-/*  */
-
+.contForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+.FormInput {
+  margin-bottom: 7px;
+  border: 2px solid #6b4226;
+  border-radius: 10px;
+  background-color: #f1c6c6;
+  height: 15px;
+  padding: 5px;
+  width: 100%;
+}
+.FormInput:focus {
+  color: #6b4226;
+}
+.FormInput:hover {
+  color: #6b4226;
+}
+.FormInput::placeholder {
+  color: #6b4226;
+}
+.FormInput2 {
+  margin-bottom: 7px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background-color: #64202086;
+  color: #fff;
+  width: 200px;
+  height: 25px;
+  font-weight: 500;
+  transition: all 0.5s ease-in-out;
+}
 /*  */
 /* Lista e Eliminacion del Producto */
 /*  */
+.containerSearch {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0px;
+}
+.inputSearch {
+	font-style: italic;
+	padding: 1px 10px;
+	padding-left: 35px;
+	outline: none;
+	background: #6B4226;
+	color: #fff;
+	border: 1px solid #472c1a;
+	border-radius: 7px;
+	transition: .3s ease;
+  margin-right: 5px;
+}
+.inputSearch:focus {
+	border-radius: 10px;
+}
+.inputSearch::placeholder {
+  color: #fff;
+}
+.containerCards{
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.buttonDelete {
+  background-color: #6b4226;
+  border: 3px solid #472c1a;
+  border-radius: 10px;
+  color: #f1c6c6;
+  width: 80px;
+  margin-top: 0px;
+  transition: all 0.5s ea;
+}
+.buttonDelete:hover {
+  background-color: #472c1a;
+  border: 3px solid #472c1a;
+}
+
