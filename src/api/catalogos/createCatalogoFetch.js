@@ -1,18 +1,25 @@
 export const createCatalogo = async (formData) => {
-    try {
-      const url = "http://localhost:3977/api/v1/catalogo";
-  
-      const response = await fetch(url, {
-        method: "POST",
-        body: formData, // Enviar FormData directamente
-      });
-  
-      const result = await response.json();
-  
-      if (!response.ok) throw new Error(result.message || "Error en la solicitud");
-      return result;
-    } catch (error) {
-      throw error;
+  try {
+    const url = "http://localhost:3977/api/v1/catalogo";
+
+    const params = {
+      method: "POST",
+      body: formData,
+    };
+
+    const response = await fetch(url, params);
+
+    if (!response.ok) {
+      const errorText = await response.text(); // Obtener el cuerpo de error como texto
+      throw new Error(
+        `Error en la solicitud! Estado: ${response.status}. Detalles: ${errorText}`
+      );
     }
-  };
-  
+
+    const data = await response.json(); // Se espera que la respuesta sea JSON
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

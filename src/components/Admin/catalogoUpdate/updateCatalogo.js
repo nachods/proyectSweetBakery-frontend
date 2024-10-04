@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateCatalogo } from "../../../api/catalogos/updateCatalogosFetch";
-import style from '../../../pages/admin/panelAdmin/PanelAdminPage.module.css'
+import style from "../../../pages/admin/panelAdmin/PanelAdminPage.module.css";
 
 const UpdateCatalogItem = ({ onItemUpdated }) => {
   const [error, setError] = useState(""); // Mensaje de error
@@ -9,7 +9,6 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
   const [nombre, setNombre] = useState(""); // Nombre del producto a actualizar
   const [detalle, setDetalle] = useState(""); // Detalle del producto
   const [categoria, setCategoria] = useState(""); // Categoría del producto
-  const [precio, setPrecio] = useState(""); // Precio del producto
   const [image, setImage] = useState(null); // Imagen del producto
 
   // Función para manejar el cambio en el campo de imagen
@@ -33,24 +32,28 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
     formData.append("categoria", categoria);
 
     if (image) {
-      formData.append("image", image);
+        formData.append("image", image);
     }
 
     try {
-      const result = await updateCatalogo(nombre, formData);
-      setSuccess("Producto actualizado con éxito.");
-      setError(""); // Limpiar mensajes de error
-      if (onItemUpdated) onItemUpdated(); // Llama a la función para actualizar la lista de productos
+        const result = await updateCatalogo(nombre, formData);
+        setSuccess("Producto actualizado con éxito.");
+        setError("");
+
+        // Llama a la función pasada como prop para actualizar la lista
+        if (onItemUpdated) onItemUpdated();
+
     } catch (err) {
-      setError("Error al actualizar el producto: " + err.message);
-      setSuccess(""); // Limpiar mensajes de éxito
+        setError("Error al actualizar el producto: " + err.message);
+        setSuccess("");
     }
-  };
+};
 
   return (
     <div>
       <form onSubmit={handleSubmit} className={style.contForm}>
-        <input className={style.FormInput}
+        <input
+          className={style.FormInput}
           type="text"
           name="nombre"
           placeholder="Nombre (Obligatorio)"
@@ -58,21 +61,24 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
           onChange={(e) => setNombre(e.target.value)}
           required
         />
-        <input className={style.FormInput}
+        <input
+          className={style.FormInput}
           type="text"
           name="detalle"
           placeholder="Detalle"
           value={detalle}
           onChange={(e) => setDetalle(e.target.value)}
         />
-        <input className={style.FormInput}
+        <input
+          className={style.FormInput}
           type="text"
           name="categoria"
           placeholder="Categoría"
           value={categoria}
           onChange={(e) => setCategoria(e.target.value)}
         />
-        <input className={style.FormInput2}
+        <input
+          className={style.FormInput2}
           type="file"
           name="image"
           accept="image/*"
@@ -93,7 +99,9 @@ const UpdateCatalogItem = ({ onItemUpdated }) => {
           />
         )}
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit" className={style.button}>Actualizar</button>
+        <button type="submit" className={style.button}>
+          Actualizar
+        </button>
         {success && <p style={{ color: "green" }}>{success}</p>}
       </form>
     </div>
