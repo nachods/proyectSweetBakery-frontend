@@ -75,12 +75,12 @@ export const CatalogoPage = () => {
           <div className={styles.containerCards}>
             {filteredCategorias.length > 0 ? (
               filteredCategorias.map((catalogo) => {
-                console.log('Image URL:', `http://localhost:3977/${catalogo.image}`);
+                console.log('Image URL:', `http://proyectsweetbakery-backend-production.up.railway.app/${catalogo.image}`);
                 return (
                   <OneCard
                     key={catalogo._id}
                     title={catalogo.nombre}
-                    picture={`http://localhost:3977/${catalogo.image}`}
+                    picture={`http://proyectsweetbakery-backend-production.up.railway.app/${catalogo.image}`}
                     desc={catalogo.detalle}
                   />
                 );
