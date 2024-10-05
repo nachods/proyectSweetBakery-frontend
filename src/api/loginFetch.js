@@ -1,6 +1,6 @@
 export const loginFetch = async (data) => {
     try {
-      const url = "http://localhost:3977/api/v1/login"; // Donde envío los datos
+      const url = "http://proyectsweetbakery-backend-production.up.railway.app/api/v1/login"; // Donde envío los datos
   
       const params = {
         method: "POST", // Tipo de solicitud https

@@ -108,7 +108,7 @@ const PanelAdminPage = () => {
                                 <div key={catalogo._id}>
                                     <OneCard
                                         title={catalogo.nombre}
-                                        picture={`http://localhost:3977/${catalogo.image}`}
+                                        picture={`http://proyectsweetbakery-backend-production.up.railway.app/${catalogo.image}`}
                                         desc={catalogo.detalle}
                                     />
                                     <button

@@ -1,6 +1,6 @@
 export const deleteCatalogo = async (nombre) => {
     try {
-      const url = "http://localhost:3977/api/v1/catalogo/" + nombre;
+      const url = "http://proyectsweetbakery-backend-production.up.railway.app/api/v1/catalogo/" + nombre;
   
       const params = {
         method: "DELETE",
