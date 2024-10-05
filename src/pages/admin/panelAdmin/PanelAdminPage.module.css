@@ -127,3 +127,13 @@
   border: 3px solid #472c1a;
 }
 
+@media (min-width: 1024px) {
+  .containerSections {
+    display: flex;
+  }
+  .containerSections div {
+    padding: 25px;
+  }
+}
+
+

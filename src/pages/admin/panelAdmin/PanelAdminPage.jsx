@@ -69,12 +69,17 @@ const PanelAdminPage = () => {
                     Cerrar sesión
                 </button>
                 <div className={styles.containerCatalogo}>
-                    <h5>Creación de producto</h5>
-                    <CreateCatalogo onCatalogoCreated={handleCatalogoCreatedOrUpdated} />
-                    <h5>Actualizar el producto</h5>
-                    <UpdateCatalogItem onItemUpdated={handleCatalogoCreatedOrUpdated} />
+                    <div className={styles.containerSections}>
+                        <div>
+                            <h5>Creación de producto</h5>
+                            <CreateCatalogo onCatalogoCreated={handleCatalogoCreatedOrUpdated} />
+                        </div>
+                        <div>
+                            <h5>Actualizar el producto</h5>
+                            <UpdateCatalogItem onItemUpdated={handleCatalogoCreatedOrUpdated} />
+                        </div>
+                    </div>
                     <h5>Lista de productos</h5>
-
                     {error && <p style={{ color: "red" }}>{error}</p>}
                     <div className={styles.containerSearch}>
                         <input
