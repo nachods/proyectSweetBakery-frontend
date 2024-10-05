@@ -1,6 +1,6 @@
 export const createCatalogo = async (formData) => {
   try {
-    const url = "http://proyectsweetbakery-backend-production.up.railway.app/api/v1/catalogo";
+    const url = "https://proyectsweetbakery-backend-production.up.railway.app/api/v1/catalogo";
 
     const params = {
       method: "POST",
